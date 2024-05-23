@@ -24,4 +24,8 @@ if __name__=="__main__":
     #Make a pipeline to translate from English to Romanian
     pipe = pipeline("translation", model="Helsinki-NLP/opus-mt-tc-big-en-ro")
 
-    translate_sentences(sentences=dataset['train']['sentence'], translation_pipe=pipe, file_path='./datasets/all_agree_ro.txt')
+    translate_sentences(sentences=dataset['test']['sentence'], translation_pipe=pipe, file_path='./datasets/test_all_agree_ro.txt')
+    
+##Studiaza pe ultimul strat embeddingurile
+##Set de embeddings pentru cuvinte specifice domeniului
+##TFIDF, comparare intre clasificari
