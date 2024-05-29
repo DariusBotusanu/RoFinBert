@@ -3,7 +3,7 @@ from transformers import pipeline
 import concurrent.futures
 from tqdm import tqdm
 
-def translate_sentences(sentences=None, translation_pipe=None, file_path='./datasets/all_agree_ro.txt'):
+def translate_sentences(sentences=None, translation_pipe=None, file_path='../datasets/all_agree_ro.txt'):
     '''
     Translates sentences from a dataset. Progress is tracked in a file and can be resumed if the program stops.
     '''
@@ -28,8 +28,8 @@ if __name__=="__main__":
     
     with concurrent.futures.ThreadPoolExecutor() as executor:
         futures = []
-        futures.append(executor.submit(load_and_translate, 'sentences_allagree', './datasets/all_agree_ro.txt'))
-        futures.append(executor.submit(load_and_translate, 'sentences_75agree', './datasets/75_agree_ro.txt'))
+        futures.append(executor.submit(load_and_translate, 'sentences_allagree', '../datasets/all_agree_ro.txt'))
+        futures.append(executor.submit(load_and_translate, 'sentences_75agree', '../datasets/75_agree_ro.txt'))
 
     for future in concurrent.futures.as_completed(futures):
         print(f"Task Completed: {future.result()}")
